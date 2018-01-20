@@ -1,0 +1,389 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title> Guide to the Easy Pay Developer guide and presentation </title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+        <link rel="stylesheet" href="css/vendor.css">
+        <link rel="stylesheet" href="css/app-green.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-aIsome/4.7.0/css/font-aIsome.min.css">
+        <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+    </head>
+
+    <body>
+        <div class="main-wrapper">
+            <div class="app" id="app">
+                <header class="header">
+                    <div class="header-block header-block-collapse hidden-lg-up"> <button class="collapse-btn" id="sidebar-collapse-btn">
+    			<i class="fa fa-bars"></i>
+    		</button> </div>
+                    <div class="header-block header-block-nav">
+
+                    </div>
+                </header>
+                <aside class="sidebar">
+                    <div class="sidebar-container">
+                        <div class="sidebar-header">
+                            <div class="brand">
+                                <div class="logo"> 
+                                  <img width="180px" src="here is where the demo link when site is hosted for clicj" alt="Easy Pay demo"> 
+                                </div>
+                        </div>
+                        <nav class="menu">
+                            <ul class="nav metismenu" id="sidebar-menu">
+                                <li>
+                                    <a href="#requrements">System Requrements</a>
+                                </li>
+                                <li>
+                                    <a href="#install">Installation</a>
+                                </li>
+                                <li>
+                                    <a href="#steps">First steps</a>
+                                </li>
+                                <li>
+                                    <a href="#payment">Payment settings</a>
+                                </li>
+                                <li>
+                                    <a href="#ipn">IPN settings</a>
+                                </li>
+                                <li>
+                                    <a href="#code">Code structure</a>
+                                </li>
+                                <li>
+                                    <a href="#credits">Sources and Credits</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </aside>
+                <div class="sidebar-overlay" id="sidebar-overlay"></div>
+                <article class="content responsive-tables-page">
+                    <div class="title-block">
+                        <h1 class="title">
+                            Quick Start Guide
+                        </h1>
+                    </div>
+                    <section class="section">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="alert alert-success"> some client thank you/presentation goes here Thank you for being part of the development team Easy Pay script! If you have any questions that are beyond the scope of this help file, please feel free to email via my user email or a phone call contact form. Thanks so much! 
+                            </div>
+                        </div>
+                    </section>
+
+                    <a name="requrements"><section class="section"></a>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card sameheight-item items" data-exclude="xs,sm,lg">
+                                    <div class="card-block">
+                                        <h5>System Requrements</h5></br>
+                                        <p>Your server need to meet the following requirements in order to run Easy Pay.</p>
+                                        <ul>
+                                            <li>PHP 5.4+</li>
+                                            <li>MYSQL 5+</li>  
+                                            <li>PHP MYSQL Extension</li>
+                                            <li>PHP CURL Extention</li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <a name="install"><section class="section"></a>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card sameheight-item items" data-exclude="xs,sm,lg">
+                                    <div class="card-block">
+                                        <h5>Installation</h5></br>
+                                        <p><strong>Step 1.</strong> Connect to your Ib server using any FTP program (ie. FileZilla) or the Ibinterface of your Ibhost and upload all files and folders which are inside the "Easy Pay Application" folder from the .zip file you have downloaded from site Easy Pay, Codecanyon or Codester.</p>
+                                         <img src="img/screen/1.png" style="width:100%"></br></br>
+
+                                        <p><strong>Step 2.</strong> The folder "docbank" and it's subfolders must have write permissions, so just give the folder write permissions (755).</p>
+                                        <img src="img/screen/2.png" style="width:100%"></br></br>
+
+                                        <p><strong>Step 3.</strong> Before you can use your product, you will need to edit the config files. First locate the config file in: application/config/config.php and open it up using a text editor such as notepad. The only line you should need to edit is the:</p>
+                                        <pre>$config['base_url']    = 'http://www.example.com/';</pre>
+                                        <p>The second file you will need to edit is your database file. Find the file: application/config/database.php and open it up using a text editor like Notepad. You will need to edit the lines listed below with your own database login information. For the most part, host stays the same as localhost unless your Ib host specifies to you otherwise. You will need your database name, database username and database password.</p>
+                                        <pre>$db['default']['hostname'] = 'localhost';
+$db['default']['username'] = 'your_username';
+$db['default']['password'] = 'your_password';
+$db['default']['database'] = 'database_name';</pre>
+
+                                        <p><strong>Step 4.</strong> Next you will need to execute the SQL file that came with the product download. This file will create the database tables that are used to store the data of your application. Usually you can import the SQL tables by using a database management system like PHPmyAdmin. The SQL file is located in foldier "Install damp" in the product download.<br>To Import the file, login to your database management system, such as PHPmyAdmin. Make sure you are on the database that you named in the database.php config file then locate the Import Tab on PHPmyAdmin.</p>
+                                        <img src="img/screen/3.png" style="width:100%"></br></br>
+                                        <p>Next select the browse button (as shown in the screenshot above) and locate the SQL file (install.sql) from your product download file.</p>
+                                        <img src="img/screen/4.png" style="width:100%"></br></br>
+                                        <p>Next click the Go! button and you should now see database tables appear in the left sidebar.</p>
+                                        <p>When you have successfully installed the ProLogin system, you should be presented with a frontpage like the one below. This is the login screen that is presented to all your users. You can login by using the username "admin" and password" password.</p>
+                                        <img src="img/screen/5.png" style="width:100%"></br></br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <a name="steps"><section class="section"></a>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card sameheight-item items" data-exclude="xs,sm,lg">
+                                    <div class="card-block">
+                                        <h5>First steps</h5></br>
+                                        <p><strong>Create a currency.</strong> In the system Easy Pay it is possible to create up to 6 additional currencies. The maximum number of currencies, including the base currency  Why Currency in a system where the world is right now people are moving from cash to digital money bit coin is ruling right now and hence we can not depend on only mobile money (Creation and Creativity is our target )- 6. All additional currencies have their exchange rate, relative to the base currency. Additional currencies can not be used for account replenishment and SCI payment. The user at the beginning must replenish the account in the base currency, and if necessary, exchange for an additional currency.</p>
+                                        <img src="img/screen/6.png" style="width:100%"></br></br>
+
+                                        <p>To create an additional currency, you must specify information about it:
+
+</p>
+                                        <p><span class="label label-success">name extra</span> - the name of the additional currency;
+</p>
+
+                                        <p><span class="label label-success">code extra</span> -  the currency code, which is used for its designation in the system Easy Pay. Please note that the currency code of values Code base currency is used to determine the currency in the replenishment methods. If the payment system does not work with your base currency, you may encounter some errors and the inability to replenish the account. The base currency code must conform to the ISO standards. Additional currencies may have their own unique code value that is not part of the ISO currency codes;
+
+</p>
+
+                                        <p><span class="label label-success">rate extra</span> - the cost of an additional currency, relative to the base currency (exchange rate).
+</p>
+
+                                        <p>You can activate additional currencies or disable by moving the slider in front of the selected currency.</p>
+
+                                        <p><strong>Site settings.</strong> For the correct operation of the system, you must correctly specify the global settings. They contain the global variables that are used on the pages:.</p>
+
+                                        <p><span class="label label-success">Site name</span> - the name of your project. The name is used for page title in the browser and for signature to transactional Email messages. This parameter corresponds to the SEO value "title".</p>
+
+                                        <p><span class="label label-success">Meta Keywords</span> - SEO keys for your Ibsite. Used in meta-tags on every page of the site.
+</p>
+
+                                        <p><span class="label label-success">Meta Description</span> - SEO description for your Ibsite. Used in meta-tags on every page of the site.</p>
+
+                                        <p><span class="label label-success">Site Email</span> - Email of the project. Used to display in a footer on the site and as a sender of transactional messages.
+
+</p>
+
+                                        <p><span class="label label-success">Items Per Page</span> - number of rows of values on one page. Used for both the user interface and the administrator interface. For example, if you select value 25, in the transaction history, the user will see a maximum of 25 transactions.</p>
+
+                                        <p><span class="label label-success">Timezone</span> - the timezone of the system. The parameter determines the official system time, which is specified for all events within the project.
+
+</p>
+
+                                        <p><span class="label label-success">Copyright</span> - signature, protection of rights to your brand. There is no copyright in the starting template,  All Sources used are open source added into one hoIver you can apply it in your own design templates.
+
+</p>
+
+                                        <p><span class="label label-success">Upload full</span> - the full  absolute path to the root folder with the domain where the Easy Pay script is located. </p>
+
+                                        <p><span class="label label-success">Upload path</span> - the folder to download documents at the time of account verification. By default - the folder "docbank". You can create a new folder with 755 rights and specify its name in this parameter.</p>
+
+                                        <p><span class="label label-success">Fee money transfer</span> - the interest rate of commission fees charged to the sender's internal money transfer.</p>
+
+
+                                        <img src="img/screen/7.png" style="width:100%"></br></br>
+
+                                        <p>If you plan to use SMS notifications, you need to integrate the Twilio service. Sign up for https://www.twilio.com/ site. Refill the balance on the required amount and get a phone number for sending SMS notifications. In the Admin Panel, the "Settings" section, specify the phone number received on the Twilio Ibsite without special characters with the country code (without the "+" symbol), Twilio token, Twilio SID.</p>
+
+                                        <p>Remember that if you do not plan to use SMS notifications, then all activator sliders must be removed oh the admin panel, the section "Message templates" - "SMS templates". Otherwise, you may get some errors because of the inability to send the message to the subscriber.</p>
+
+                                        <img src="img/screen/8.png" style="width:100%"></br></br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <a name="payment"><section class="section"></a>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card sameheight-item items" data-exclude="xs,sm,lg">
+                                    <div class="card-block">
+                                        <h5>Payment settings</h5></br>
+                                        <p>In the system Easy Pay, the user can replenish his account through third-party payment systems and SWIFT transfer. Connecting third-party payment systems is also available for SCI. </p>
+
+                                        <img src="img/screen/9.png" style="width:100%"></br></br>
+
+                                        <p>All requests for the IPN link must be in the POST format.</p>
+                                        <p><a href="https://payeer.com" target="_blank">Configuration of Payeer payment</a></br>
+IPN link to deposit payments: https://yousite.com/IPN/payeer</br>
+IPN link to SCI: https://yousite.com/SCI/sci_payeer 
+
+
+</p>
+                                      <p><a href="http://advcash.com/" target="_blank">Configuration of ADV Cash payment</a></br>
+IPN link to deposit payments: https://yousite.com/IPN/advcash</br>
+IPN link to SCI: https://yousite.com/SCI/sci_advcash
+
+
+</p>  
+                                    <p><a href="https://perfectmoney.is/" target="_blank">Configuration of Perfect Money payment</a></br>
+IPN link to deposit payments: https://yousite.com/IPN/perfect2</br>
+IPN link to SCI: https://yousite.com/SCI/sci_perfect
+</p>  
+                                    
+                                    <p><a href="https://blockchain.info/" target="_blank">Configuration of Bitcoin payment</a></br>
+You need to get the API Blockchain key. To make a request you can follow the link <a href="https://api.blockchain.info/customer/signup">https://api.blockchain.info/customer/signup</a>
+</p>  
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                     <a name="ipn"><section class="section"></a>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card sameheight-item items" data-exclude="xs,sm,lg">
+                                    <div class="card-block">
+                                        <h5>IPN settings</h5></br>
+                                        <p>To make a request for payment, the you user must send a special HTML form using the POST method:</p>
+
+                                        <div class="form-group">
+                                            <textarea rows="8" class="form-control boxed" disabled><form method="POST" action="http://site.com/SCI/form">
+    <input type="hidden" name="order" value="134543" />
+    <input type="hidden" name="merchant" value="322323" />
+    <input type="hidden" name="item_name" value="Testing payment" />
+    <input type="hidden" name="amount" value="350.00" />
+    <input type="hidden" name="custom" value="comment" />
+    <button type="submit">Pay now!</button> 
+</form></textarea>
+                                        </div>
+                                        <img src="img/screen/10.png" style="width:100%"></br></br>
+
+                                        <p>Where shape parameters correspond to:</p>
+
+                                        <p><span class="label label-primary">http://site.com/SCI/form</span> - the address where your Easy Pay script is located;</p>
+
+                                        <p><span class="label label-primary">order</span> -  account number in the system. Can contain any characters;
+</p>
+
+                                        <p><span class="label label-primary">merchant</span> - merchant ID, received by the user after moderation;
+</p>
+
+                                        <p><span class="label label-primary">item_name</span> - the purpose of the transfer or the name of the goods/services for which payment is made;
+</p>
+
+                                        <p><span class="label label-primary">amount</span> - the amount to be paid in the base currency as x.xx;
+</p>
+
+                                        <p><span class="label label-primary">custom</span> - a fill-in field in which you can send your own unique parameter.</p>
+
+                                        <p>Please note that transfer through the SCI system is possible only in the base currency. Extra currencies are not currently supported for SCI.</p>
+
+                                        <p>After processing the payment, Easy Pay sends the following information about the payment to the merchant's IPN link by the POST method:</p>
+
+                                        <p><span class="label label-success">amount</span> - amount of payment;</p>
+
+                                        <p><span class="label label-success">fee</span> - commission withheld from the payment amount;</p>
+
+                                        <p><span class="label label-success">method</span> - the payment method by which the user paid the invoice;</p>
+
+                                        <p><span class="label label-success">merchant_name</span> - the name of the merchant in whose favor the payment was received;</p>
+
+                                        <p><span class="label label-success">status</span> - the payment status in the system Easy Pay;</p>
+
+                                        <p><span class="label label-success">date</span> - the date and time of payment;</p>
+
+                                        <p><span class="label label-success">id_transfer</span> - the payment ID number generated by the payment system that processed the payment of the user;
+</p>
+
+                                        <p><span class="label label-success">balance</span> - the merchant's current balance in the system Easy Pay;
+</p>
+
+                                        <p><span class="label label-success">hash</span> - the generated hash by the MD5 strtoupper method, consisting of the amount, merchant_password, date, id_transfer;</p>
+
+                                        <p>When the use of IPN notifications to third-party site, the user must check the value of the parameter hash.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <a name="code"><section class="section"></a>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card sameheight-item items" data-exclude="xs,sm,lg">
+                                    <div class="card-block">
+                                        <h5>Code structure</h5></br>
+
+                                        <p>This part of the guide is to show you where the most common elements of the site are located. Remember, this site uses CodeIgniter Framework, so for Ill-documented additional support, please use their Ibsite and user guide: <a href="http://www.codeigniter.com/user_guide">http://www.codeigniter.com/user_guide/</a></p>
+
+                                        <p>The product also uses it's own custom styling to create the site layout. You can find the stylesheet file in folder "Themes":</p>
+
+                                        <ul>
+                                            <li>Modular - admin theme</li>
+                                            <li>Private - account theme</li>  
+                                            <li>Default - public theme</li>
+                                        </ul>
+
+                                        <p>The template files, also known as views, can be found in application/views/. These files contain the HTML of the site and modifying these files allows you to change the way the site presents data. These files also contain some PHP code so it's important to know what you're doing when editting these files. The layout file can be found in themes/{name_template}/template.php.</p>
+
+                                        <p>The controller files, which contain the site logic, can be found in application/controllers/ folder. These are PHP files that are used to control how the site works.</p>
+
+                                        <p>The model files can be found in application/models/ which contain the database logic.</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <a name="credits"><section class="section"></a>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card sameheight-item items" data-exclude="xs,sm,lg">
+                                    <div class="card-block">
+                                        <h5>Sources and Credits</h5></br>
+
+                                        <p>When developing Easy Pay, I used the Codeigniter 3 framework. You can see the documentation <a href="https://codeigniter.com/" target="_blank">https://codeigniter.com/</a></p>
+
+                                        <p>For the layout template I used the Admin Panel under the MIT license template Modular <a href="https://github.com/modularcode/modular-admin-html" target="_blank">https://github.com/modularcode/modular-admin-html/</a></p>
+
+                                        <p>For the layout template I used the Account under the MIT license template Bootstrap 3 <a href="http://getbootstrap.com/" target="_blank">http://getbootstrap.com/</a></p>
+
+                                        <p>In the design of Easy Pay, I used a collection of icons from <a href="http://fontaIsome.io/icons/" target="_blank">Font awsome</a>, <a href="http://ionicons.com/" target="_blank">ionicons</a> and <a href="http://simplelineicons.com/" target="_blank">Simple Line Icons</a>.</p>
+
+                                        <p>To edit Email templates I use the editor CK Editor <a href="http://ckeditor.com/" target="_blank">http://ckeditor.com/</a></p>
+
+                                        <p>All logos of payment systems belong to their rightholders.</p>
+
+
+           
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                </article>
+                <footer class="footer">
+                    <div class="footer-block buttons">  </div>
+                    <div class="footer-block author">
+                        <ul>
+                            <li> Official Website/systems developer <a href="http://kipya-connect.com/">Easy Pay</a> Developed by Owor Wilbroad  Full Stack developer Kipya Connect</li>
+                        </ul>
+                    </div>
+                </footer>
+               
+               
+            </div>
+        </div>
+        <!-- Reference block for JS -->
+        <div class="ref" id="ref">
+            <div class="color-primary"></div>
+            <div class="chart">
+                <div class="color-primary"></div>
+                <div class="color-secondary"></div>
+            </div>
+        </div>
+        <script src="js/vendor.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+
+</html>
